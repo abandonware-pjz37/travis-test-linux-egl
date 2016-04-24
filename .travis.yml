@@ -1,0 +1,27 @@
+language:
+  - cpp
+
+os:
+  - linux
+  - osx
+
+# Container-based infrastructure (Linux)
+# * https://docs.travis-ci.com/user/migrating-from-legacy/#How-can-I-use-container-based-infrastructure%3F
+sudo:
+  - false
+
+# Install packages differs for container-based infrastructure
+# * https://docs.travis-ci.com/user/migrating-from-legacy/#How-do-I-install-APT-sources-and-packages%3F
+# * http://stackoverflow.com/a/30925448/2288008
+addons:
+  apt:
+    packages:
+      - libgl1-mesa-dev
+
+install:
+  # Info about OS
+  - uname -a
+
+script:
+  - if [[ "`uname`" == "Linux" ]]; ls /usr/include/GL/gl.h; fi
+  - if [[ "`uname`" == "Linux" ]]; ls /usr/include/EGL/egl.h; fi
