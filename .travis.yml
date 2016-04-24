@@ -23,5 +23,5 @@ install:
   - uname -a
 
 script:
-  - if [[ "`uname`" == "Linux" ]]; ls /usr/include/GL/gl.h; fi
-  - if [[ "`uname`" == "Linux" ]]; ls /usr/include/EGL/egl.h; fi
+  - if [[ "`uname`" == "Linux" ]]; then ls /usr/include/GL/gl.h; fi
+  - if [[ "`uname`" == "Linux" ]]; then ls /usr/include/EGL/egl.h; fi
